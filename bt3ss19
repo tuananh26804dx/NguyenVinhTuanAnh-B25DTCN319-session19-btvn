@@ -1,0 +1,35 @@
+#include <stdio.h> 
+#include <stdio.h>
+
+float average(int *arr, int n) {
+    float sum = 0;
+    int *ptr;
+    
+    for (ptr = arr; ptr < arr + n; ptr++) {
+        sum += *ptr;
+    }
+    return sum / n;
+}
+
+int main() {
+    int n;
+    int arr[100];
+    printf("Nhap so luong phan tu cua mang: ");
+    scanf("%d", &n);
+
+    if (n <= 0 || n > 100) {
+        printf("So luong phan tu khong hop le.\n");
+        return 1;
+    }
+    printf("Nhap cac phan tu cua mang:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Phan tu arr[%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    float avg_value = average(arr, n);
+
+    printf("Gia tri trung binh cua mang la: %.2f\n", avg_value);
+
+    return 0;
+}
